@@ -7,7 +7,7 @@
 
   "modules-left": ["river/tags"],
   "modules-center": ["river/window"],
-  "modules-right": ["disk","memory","cpu","clock","clock#hour"],
+  "modules-right": ["tray","disk","memory","cpu","clock","clock#hour"],
 
   "river/tags": {
     "disable-click": false
@@ -15,6 +15,11 @@
 
   "river/window": {
     "max-length": 50
+  },
+
+  "tray": {
+    "spacing": 8,
+    "reverse-direction": true
   },
 
   "disk": {

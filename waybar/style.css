@@ -42,6 +42,14 @@ label.module {
   color: #D3C6AA;
 }
 
+#tags button.urgent {
+  color: #E67E80;
+}
+
+#tray {
+  padding: 0px 5px 0px 5px;
+}
+
 #disk {
   padding: 0px 5px 0px 5px;
   color: #83C092;

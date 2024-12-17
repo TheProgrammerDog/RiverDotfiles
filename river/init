@@ -3,7 +3,7 @@
 ### AUTOSTART
 riverctl spawn "pipewire"
 riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@144.001Hz"
-riverctl spawn "swaybg -i ~/.config/river/Firewatch2Background.png --mode fill"
+riverctl spawn "swaybg -i ~/.config/wallpapers/Firewatch2Background.png --mode fill"
 riverctl spawn "waybar"
 
 riverctl spawn "wl-paste --watch clipman store --histpath ~/.local/state/clipman-primary.json"
