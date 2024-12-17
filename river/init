@@ -136,6 +136,7 @@ riverctl rule-add -app-id "thunar" ssd
 riverctl rule-add -app-id "imv" ssd
 riverctl rule-add -app-id "steam" ssd
 riverctl rule-add -app-id "org.telegram.desktop" ssd
+riverctl rule-add -app-id "io.github.celluloid_player.Celluloid" ssd
 
 # Make pop-ups of a program be floating, but not the program itself
 riverctl rule-add -app-id "steam" -title "Steam" no-float
