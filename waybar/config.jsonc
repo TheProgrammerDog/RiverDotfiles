@@ -1,0 +1,51 @@
+{
+  "height": 35,
+  "spacing": 2,
+  
+  "position":"top",
+
+
+  "modules-left": ["river/tags"],
+  "modules-center": ["river/window"],
+  "modules-right": ["disk","memory","cpu","clock","clock#hour"],
+
+  "river/tags": {
+    "disable-click": false
+  },
+
+  "river/window": {
+    "max-length": 50
+  },
+
+  "disk": {
+    "interval": 15,
+    "format": "[  {percentage_used}% ]",
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 15,
+    "format": "[  {percentage}%  {swapPercentage}% ]",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "interval": 15,
+    "format": "[  {usage}% ]",
+    "tooltip": false
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "[  {:%d/%m/%Y} ]",
+    "tooltip": false
+  },
+
+  "clock#hour": {
+    "interval": 1,
+    "format": "[  {:%R} ]",
+    "tooltip": false
+  }
+
+}
+

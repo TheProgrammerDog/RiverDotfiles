@@ -1,0 +1,68 @@
+* {
+  font-family: Awesome, FiraMono;
+  font-size: 13px;
+  font-weight: bold; 
+}
+
+window#waybar {
+  background: #1E2326;
+  border-bottom: 2px solid #D3C6AA;
+  color: #D3C6AA;
+}
+
+label.module {
+}
+
+#window {
+}
+
+#tags {
+  margin: 3px 3px 5px 3px;
+  padding: 0px 5px 0px 5px;
+  border-radius: 5px;
+}
+
+#tags button:hover {
+  background: inherit;
+  border-color: inherit;
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#tags button {
+  padding: 0px 3px 0px 3px;
+  color: #374145;
+}
+
+#tags button.occupied {
+  color: #9DA9A0;
+}
+
+#tags button.focused {
+  color: #D3C6AA;
+}
+
+#disk {
+  padding: 0px 5px 0px 5px;
+  color: #83C092;
+}
+
+#memory {
+  padding: 0px 5px 0px 5px;
+  color: #7FBBB3;
+}
+
+#cpu {
+  padding: 0px 5px 0px 5px;
+  color: #E67E80;
+}
+
+#clock {
+  padding: 0px 5px 0px 5px;
+  color: #E69875;
+}
+
+#clock.hour {
+  padding: 0px 5px 0px 5px;
+  color: #DDBC7F;
+}

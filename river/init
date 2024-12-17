@@ -1,0 +1,145 @@
+#!/bin/sh
+
+### AUTOSTART
+riverctl spawn "pipewire"
+riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@144.001Hz"
+riverctl spawn "swaybg -i ~/.config/river/Firewatch2Background.png --mode fill"
+riverctl spawn "waybar"
+
+riverctl spawn "wl-paste --watch clipman store --histpath ~/.local/state/clipman-primary.json"
+
+# xdg-desktop-portal
+riverctl spawn "/usr/libexec/xdg-desktop-portal-gtk"
+riverctl spawn "/usr/libexec/polkit-mate-authentication-agent-1"
+
+# Polkit
+riverctl spawn "/usr/libexec/polkit-mate-authentication"
+
+# GTK
+riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme Papirus"
+riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker"
+riverctl xcursor-theme Adwaita
+
+### INPUT
+riverctl keyboard-layout -variant altgr-intl us
+riverctl input pointer-6940-7024-Corsair_CORSAIR_M55_RGB_PRO_Gaming_Mouse pointer-accel -0.65
+
+### BASIC
+# Move focus
+riverctl map normal Super Left focus-view previous
+riverctl map normal Super Right focus-view next
+
+# Move the focused window next/prev positions to main
+riverctl map normal Super+Shift Left swap previous
+riverctl map normal Super+Shift Right swap next
+
+# Bump the focused window to main
+riverctl map normal Super+Shift Return zoom
+
+# Resize the window
+riverctl map normal Super+Control Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super+Control Right send-layout-cmd rivertile "main-ratio +0.05"
+
+# Close the focused window
+riverctl map normal Super Q close
+
+# Applications
+riverctl map normal Super Return spawn foot
+riverctl map normal Super D spawn fuzzel
+
+riverctl map normal Super P spawn "grim $(xdg-user-dir PICTURES)/screenshots/$(date +'%s_grim.png')"
+
+# Exit river
+riverctl map normal Super+Shift E exit
+
+# Toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+### FLOATING
+# Move the focused window
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map normal Super+Alt Left move left 100
+riverctl map normal Super+Alt Down move down 100
+riverctl map normal Super+Alt Up move up 100
+riverctl map normal Super+Alt Right move right 100
+
+# Move the focused window directly to edges
+riverctl map normal Super+Alt+Control J snap left
+riverctl map normal Super+Alt+Control K snap down
+riverctl map normal Super+Alt+Control I snap up
+riverctl map normal Super+Alt+Control L snap right
+
+# Resize the focused window
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map normal Super+Alt+Shift J resize horizontal -100
+riverctl map normal Super+Alt+Shift K resize vertical 100
+riverctl map normal Super+Alt+Shift I resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
+
+# Change the layout orientation
+riverctl map normal Super I  send-layout-cmd rivertile "main-location top"
+riverctl map normal Super L  send-layout-cmd rivertile "main-location right"
+riverctl map normal Super K  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super J  send-layout-cmd rivertile "main-location left"
+
+# Toggle flaot
+riverctl map normal Super Space toggle-float
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+### TAGS (workspaces)
+all_tags=$(((1 << 32) - 1))
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Show window with tag X
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # Re-tag the focused window
+    riverctl map normal Super+Shift $i set-view-tags $tags
+done
+
+# Show all windows
+riverctl map normal Super 0 set-focused-tags $all_tags
+
+# Tag the focused window with all tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
+
+### MEDIAS KEYS
+for mode in normal locked
+do
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
+    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+
+done
+
+### COLORS
+riverctl border-color-focused 0xD3C6AA
+riverctl border-color-unfocused 0x4F5B58
+riverctl border-color-urgent 0xE67E80
+
+### RULES
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add -app-id 'float*' -title 'foo' float
+
+# Make all views with app-id "bar" and any title use client-side decorations
+riverctl rule-add -app-id "bar" csd
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 300
+
+# Add server side decorations
+riverctl rule-add -app-id "org.mozilla.firefox" ssd
+riverctl rule-add -app-id "thunar" ssd
+riverctl rule-add -app-id "imv" ssd
+riverctl rule-add -app-id "steam" ssd
+
+# Make pop-ups of a program be floating, but not the program itself
+riverctl rule-add -app-id "steam" -title "Steam" no-float
+riverctl rule-add -app-id "steam" -title "*" float
+
+### LAYOUT
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 6 &
+
