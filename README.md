@@ -3,9 +3,10 @@
 
 ![very cool image](screenshots/1734388607_grim.png)
 
-```
-Mostly based in [EverForest](https://github.com/sainnhe/everforest) color-scheme 
-```
+---
+
+Mostly based in [EverForest](https://github.com/sainnhe/everforest) color-scheme
+But for GTK was used [Nordic](https://github.com/EliverLara/Nordic) color-scheme
 
 | Software | Used |
 | -------- | ---- |
