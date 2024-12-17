@@ -130,10 +130,12 @@ riverctl rule-add -app-id "bar" csd
 riverctl set-repeat 50 300
 
 # Add server side decorations
+# "lswt" for seeing app ids and titles
 riverctl rule-add -app-id "org.mozilla.firefox" ssd
 riverctl rule-add -app-id "thunar" ssd
 riverctl rule-add -app-id "imv" ssd
 riverctl rule-add -app-id "steam" ssd
+riverctl rule-add -app-id "org.telegram.desktop" ssd
 
 # Make pop-ups of a program be floating, but not the program itself
 riverctl rule-add -app-id "steam" -title "Steam" no-float
