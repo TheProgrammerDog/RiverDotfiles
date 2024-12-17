@@ -8,6 +8,8 @@
 Mostly based in [EverForest](https://github.com/sainnhe/everforest) color-scheme<br>
 But for GTK was used [Nordic](https://github.com/EliverLara/Nordic) color-scheme<br>
 
+---
+
 | Software | Used |
 | -------- | ---- |
 | Distribution | [VoidLinux](https://voidlinux.org/) |
