@@ -1,14 +1,14 @@
-# RiverDotfiles
-## River dotfiles for Void Linux
+# RiverDotfiles<br>
+## River dotfiles for Void Linux<br>
+
+Mostly based in [EverForest](https://github.com/sainnhe/everforest) color-scheme<br>
+But for GTK was used [Nordic](https://github.com/EliverLara/Nordic) color-scheme<br>
+---
 
 ![very cool image](screenshots/1734388607_grim.png)
 
 ---
 
-Mostly based in [EverForest](https://github.com/sainnhe/everforest) color-scheme<br>
-But for GTK was used [Nordic](https://github.com/EliverLara/Nordic) color-scheme<br>
-
----
 
 | Software | Used |
 | -------- | ---- |
