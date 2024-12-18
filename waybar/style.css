@@ -13,6 +13,15 @@ window#waybar {
 label.module {
 }
 
+#wireplumber {
+  color: #DBBC7F;
+  padding: 0px 3px 0px 3px;
+}
+
+#wireplumber.muted {
+  color: #45443C;
+}
+
 #window {
 }
 

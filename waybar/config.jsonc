@@ -7,7 +7,13 @@
 
   "modules-left": ["river/tags"],
   "modules-center": ["river/window"],
-  "modules-right": ["tray","disk","memory","cpu","clock","clock#hour"],
+  "modules-right": ["tray","wireplumber","disk","memory","cpu","clock","clock#hour"],
+
+  "wireplumber": {
+    "format": "[  {volume}% ]",
+    "tooltip": false,
+    "on-click": "pamixer --toggle-mute"
+  },
 
   "river/tags": {
     "disable-click": false
