@@ -5,9 +5,9 @@
   "position":"top",
 
 
-  "modules-left": ["river/tags","tray"],
+  "modules-left": ["river/tags"],
   "modules-center": ["river/window"],
-  "modules-right": ["wireplumber","disk","memory","cpu","clock","clock#hour"],
+  "modules-right": ["tray","wireplumber","disk","memory","cpu","clock","clock#hour"],
 
   "wireplumber": {
     "format": "[  {volume}% ]",
