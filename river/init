@@ -18,6 +18,7 @@ riverctl spawn "/usr/libexec/polkit-mate-authentication"
 # GTK
 riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme Papirus"
 riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker"
+riverctl spawn "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
 riverctl xcursor-theme Adwaita
 
 ### INPUT
@@ -131,12 +132,13 @@ riverctl set-repeat 50 300
 
 # Add server side decorations
 # "lswt" for seeing app ids and titles
-riverctl rule-add -app-id "org.mozilla.firefox" ssd
-riverctl rule-add -app-id "thunar" ssd
-riverctl rule-add -app-id "imv" ssd
-riverctl rule-add -app-id "steam" ssd
-riverctl rule-add -app-id "org.telegram.desktop" ssd
-riverctl rule-add -app-id "io.github.celluloid_player.Celluloid" ssd
+#riverctl rule-add -app-id "org.mozilla.firefox" ssd
+#riverctl rule-add -app-id "thunar" ssd
+#riverctl rule-add -app-id "imv" ssd
+#riverctl rule-add -app-id "steam" ssd
+#riverctl rule-add -app-id "org.telegram.desktop" ssd
+#riverctl rule-add -app-id "io.github.celluloid_player.Celluloid" ssd
+riverctl rule-add -app-id "*" ssd
 
 # Make pop-ups of a program be floating, but not the program itself
 riverctl rule-add -app-id "steam" -title "Steam" no-float
